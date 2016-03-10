@@ -1,0 +1,273 @@
+/************************** Make it responsive *************************************************/
+/****************************** Phone-sized screen ********************************************/
+@media screen and (max-width: 767px) {
+body {
+	margin: auto;
+	min-height: 100%;
+	font-family: 'Raleway', sans-serif;
+	background-color: #FADCE8;
+}
+
+#outerbody {
+	min-height: 700px;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+#article {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+#aside {
+	width: 100%;
+	color: #000000;
+	background-color: #FAFAFA;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#welcome-box {
+	width: 100%;
+	text-align: center;
+	background-color: #222222;
+	vertical-align: middle;
+}
+
+#welcome-box > p {
+	color: #FAFAFA;
+	padding: 20px;
+}
+}
+
+/******************************* Tablet-sized screen **************************************/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+body {
+	margin: 5px;
+	min-height: 100%;
+	font-family: 'Raleway', sans-serif;
+	background-color: #FADCE8;
+}
+
+#outerbody {
+	min-height: 700px;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+#article {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+#tablet-width {
+	display: flex;
+	flex-direction: row;
+}
+
+#aside {
+	width: 67%;
+	color: #000000;
+	background-color: #FAFAFA;
+	margin-right: 10px;
+}
+
+#welcome-box {
+	width: 33%;
+	left: 67%;	
+	text-align: center;
+	background-color: #222222;
+}
+
+#welcome-box > p {
+	color: #ffffff;
+	padding: 30px;
+}
+}
+
+/****************************** Any screen wider than tablet ********************************/
+@media screen and (min-width: 992px) {
+body {
+	margin: auto;
+	padding: 0;
+	width: 997px;
+	min-height: 100%;
+	font-family: 'Raleway', sans-serif;
+	background-color: #FADCE8;
+}
+
+#outerbody {
+	min-height: 700px;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+#article {
+	width: 725px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
+}
+
+#aside {
+	width: 280px;
+	color: #000000;
+	display: flex;
+	vertical-align: top;
+	flex-direction: column;
+}
+
+#welcome-box {
+	position: fixed;
+	right: 0;
+	top: 95%;
+	padding: 7px;
+	background-color: #222222;
+	color: #ffffff;
+}
+
+#welcome-box > p {
+	color: #ffffff;
+}
+}
+
+/*********************************** Universal CSS begins **************************************/
+/********************************** Header from left to right ***********************************/
+
+#header {
+	display: flex;
+	height: 60px;
+	width: 997px;
+	background-color: #FF5E9F;
+	justify-content: space-between;
+	position: fixed;
+}
+
+#logo {
+	margin: 15px;
+	display: flex;
+	width: 40%;
+	flex-direction: row;
+	align-items: flex-end;
+}
+
+#kitten {
+	height: 45px;
+	margin-bottom: -3px;
+}
+
+#tagline {	
+	margin: 0;
+	font-family: 'Architects Daughter', cursive;
+	margin-bottom: -13px;
+}
+
+#menus {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: space-between;
+}
+
+#bottom-row {
+	display: flex;
+	
+}
+
+.button-text {
+	width: 110px;
+	height: 25px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding-bottom: 5px;
+	border-bottom: 5px solid #FF5E9F;
+}
+
+.button-text:hover {
+	border-bottom: 5px solid black;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+/*************************** Header done - Body begins *************************************/
+/*************************** Post status form *********************************************/
+
+#post-status {
+	background-color: #FAFAFA;
+	padding-left: 15px;
+	text-align: center;
+}
+#status-form {
+	display: none;
+}
+
+.reply-form {
+	display: none;
+}
+
+/************************************ Article begins ***************************************/
+
+.user {
+	min-height: 120px;
+	background-color: #FAFAFA;
+	padding: 15px;
+	border-top: 1px solid #A5B3B8;
+}
+
+.user-name {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #FF5E9F;
+}
+
+.user-photo {
+	height: 100px;
+	width: 110px;
+	float: left;
+	margin: 5px 10px 0 5px;
+}
+
+/************************** Article done - Aside begins **************************************/
+
+#aside-title {
+	background-color: #FAFAFA;
+	text-align: center;
+}
+
+.featured-user {
+	background-color: #FAFAFA;
+	display: flex;
+	flex-direction: column;
+	padding-top: 7px;
+}
+
+.feat-user-photo-wrapper {
+	align-self: center;
+}
+
+.feat-user-photo {
+	height: 140px;
+	width: 150px;
+}
+
+.feat-user-bio {
+	padding: 8px;
+	text-align: center;
+}
+
