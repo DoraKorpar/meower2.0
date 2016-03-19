@@ -84,7 +84,7 @@ body {
 
 #welcome-box {
 	width: 33%;
-	left: 67%;	
+	left: 67%;
 	text-align: center;
 	background-color: #222222;
 }
@@ -149,7 +149,7 @@ body {
 
 #header {
 	display: flex;
-	height: 180px;
+	height: 80px;
 	width: 100%;
 	background-color: #FF5E9F;
 	justify-content: space-between;
@@ -157,13 +157,15 @@ body {
 
 #logo {
 	margin: 15px;
+	display: flex;
+	flex-direction: row;
 }
 
 #kitten {
-	width: 70%;
+	width: 20%;
 }
 
-#tagline {	
+#tagline {
 	padding-top: 5px;
 	margin: 0;
 	font-family: 'Architects Daughter', cursive;
@@ -177,7 +179,7 @@ body {
 
 #bottom-row {
 	display: flex;
-	
+
 }
 
 .button-text {
@@ -223,26 +225,41 @@ a {
 	display: none;
 }
 
+.reply-class p {
+	font-weight: bolder;
+}
+
 /************************************ Article begins ***************************************/
 
 .user {
-	min-height: 120px;
+	min-height: 80px;
 	background-color: #FAFAFA;
 	padding: 15px;
 	border-top: 1px solid #A5B3B8;
+	border-bottom: 1px solid #A5B3B8;
 }
 
 .user-name {
 	font-weight: bold;
-	font-size: 1.2em;
 	color: #FF5E9F;
 }
 
+.status-size {
+	font-size: .9em;
+}
+
 .user-photo {
-	height: 100px;
-	width: 110px;
+	height: 80px;
+	width: 90px;
 	float: left;
 	margin: 5px 10px 0 5px;
+}
+
+/*********************************** More statuses button ***********************************/
+#more-status {
+	background-color: #FAFAFA;
+	padding-left: 15px;
+	text-align: center;
 }
 
 /************************** Article done - Aside begins **************************************/
@@ -272,4 +289,3 @@ a {
 	padding: 8px;
 	text-align: center;
 }
-
