@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  document.getElementById("more-status").addEventListener("click", displayMoreStatuses);
+document.getElementById("more-status").addEventListener("click", displayMoreStatuses);
 
   function displayMoreStatuses() {
     ajaxGet("statuses-1.html", function(string) {
       document.getElementById("statuses1").innerHTML = string ;
-    });
+  });
 
 
 

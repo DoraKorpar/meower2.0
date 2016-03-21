@@ -1,78 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-  <link rel="stylesheet" type="text/css"
-    href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
-  <script type="text/javascript" charset="UTF-8"
-    src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
-  <script type="text/javascript" charset="UTF-8"
-    src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
-  <script type="text/javascript" charset="UTF-8"
-    src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
-  <script type="text/javascript" charset="UTF-8"
-    src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
-
 </head>
-<body style="margin: 0;">
-  <div id="map" style="width: 100%; height: 100vh; background: grey" />
+<body>
   <script  type="text/javascript" charset="UTF-8" >
-    
+
+// Add 'Zoom in' context menu item and display 'Hello Holb...'
+map.addEventListener('contextmenu', function(e) {
+  e.items.push(new H.util.ContextItem({
+  label: 'Hello Holberton School!',
+  callback: setUpClickListener(map);
+  }
+  }));
+});
+
 /**
- * Moves the map to display over Berlin
- *
- * @param  {H.Map} map      A HERE Map instance within the application
+ * Clicking on the map displays an alert box containing the latitude and longitude
+ * of the location pressed.
  */
-function moveMapToHolberton(map){
-  map.setCenter({lat:37.79205, lng:-122.39956});
-  map.setZoom(16);
+// setUpClickListener(map);
+function setUpClickListener(map) {
+  map.addEventListener('contextmenu', function (evt) {
+    var coord = map.screenToGeo(evt.currentPointer.viewportX,
+      evt.currentPointer.viewportY);
+    alert('Clicked at ' + Math.abs(coord.lat.toFixed(4)) +
+      ((coord.lat > 0) ? 'N' : 'S') +
+      ' ' + Math.abs(coord.lng.toFixed(4)) +
+      ((coord.lng > 0) ? 'E' : 'W'));
+  });
 }
 
-
-// Add window resize listener to adjust the map dimensions.
-window.addEventListener('resize', function() {
-  map.getViewPort().resize();
+// Add event listeners:
+map.addEventListener('tap', function(evt) {
+  alert('Clicked at ' + evt.currentPointer.viewportX + ',' +
+  evt.currentPointer.viewportY);
 });
 
-// Add map context menu event listener.
-// map.addEventListener('contextmenu', onContextMenuRequested);
-// function onContextMenuRequested(e) {
-//   // TODO: add the context menu item to get the result as shown below.
-// }
+// Create the parameters for the reverse geocoding request:
+var reverseGeocodingParameters = {
+    prox: 'Math.abs(coord.lat.toFixed(4),Math.abs(coord.lng.toFixed(4)',
+    mode: 'retrieveAddresses',
+    maxresults: 1
+  };
+
+  // Define a callback function to process the response:
+  // function onSuccess(result) {
+  //   var location = result.Response.View[0].Result[0];
+
+    // Create an InfoBubble at the returned location with
+    // the address as its contents:
+  //   ui.addBubble(new H.ui.InfoBubble({
+  //     lat: location.Location.DisplayPosition.Latitude,
+  //     lng: location.Location.DisplayPosition.Longitude
+  //    }, { content: location.Location.Address.Label }));
+  // };
+
+// Get an instance of the geocoding service:
+  // var geocoder = platform.getGeocodingService();
+
+  // Call the geocode method with the geocoding parameters,
+  // the callback and an error callback function (called if a
+  // communication error occurs):
+  // geocoder.reverseGeocode(
+  //   reverseGeocodingParameters,
+  //   onSuccess,
+  //   function(e) { alert(e); });
+
+
 
 
 /**
- * Boilerplate map initialization code starts below:
+ * Processes reverse geocoder response and
+ * adds a context menu item showing the associated address.
  */
-//Step 1: initialize communication with the platform
-var platform = new H.service.Platform({
-  app_id: 'ymiwYSxqRxmqaUqkyD1e',
-  app_code: 'tuqH5pOJ-fv3IPv2t8Ztzw',
-  useCIT: true,
-  useHTTPS: true
-});
-var defaultLayers = platform.createDefaultLayers();
+// function onRGCResult(result, contextMenuEvent) {
+//   var addressLabel = result.Response.View[0].Result[0]; // TODO: find the response JSON path to
+// //get the address label.
+//   contextMenuEvent.items.push(addressLabel); // TODO: add the address label as a context
+// //menu item.
+//   // Dispatch the context menu event again for all attached listeners to act with
+// //new added item(s).
+//   contextMenuEvent.currentTarget.dispatchEvent(contextMenuEvent);
+// }
+//
 
-//Step 2: initialize a map  - not specificing a location will give a whole world view.
-var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map);
-
-//Step 3: make the map interactive
-// MapEvents enables the event system
-// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-
-// Create the default UI components
-var ui = H.ui.UI.createDefault(map, defaultLayers);
-
-var mapSettings = ui.getControl('mapsettings');
-var zoom = ui.getControl('zoom');
-var scalebar = ui.getControl('scalebar');
-var zoomRectangle = ui.getControl('zoomrectangle');
-
-
-// Now use the map as required...
-moveMapToHolberton(map);
   </script>
 </body>
 </html>
